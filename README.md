@@ -16,6 +16,10 @@ Decrypting a file: decrypting/decrypt
 => getkey
 ```
 
+Your key is on key.txt
+
+Now, for crypting your file
+
 ```txt
 CryptPY [Fernet]
 
