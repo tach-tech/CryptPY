@@ -55,6 +55,7 @@ And to decrypt file , you have to make like crypting
 ## Changelog 17/01
 
 - Log system added
+- Style
 
 ## About this project 
 
