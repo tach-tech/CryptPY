@@ -1,6 +1,13 @@
 from cryptography.fernet import Fernet
-from w_log import wlog
+from pystyle import *
+import time
 import os
+from w_log import wlog
+
+white = Col.white
+red = Col.light_red
+blue = Col.light_blue
+green = Col.light_green
 
 def cryptPY():
 
@@ -25,38 +32,42 @@ def cryptPY():
         decrypted = fernet.decrypt(encrypted)
         with open('crypt_file.txt', 'wb') as dec_file:
             dec_file.write(decrypted)
+    
+    def clear_ter():
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     while True:
 
-        os.system('cls')
-        input("{~ CryptPY [Fernet] ~}\n \nPress Any Key ... ")
-        os.system('cls')
+        clear_ter()
+        input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nPress Any Key ... {white}")
+        time.sleep(1.5)
+        clear_ter()
 
-        choice = input("CryptPY [Fernet]\n \nGet a Key: getkey\nCrypting a file: crypting/crypt\nDecrypting a file: decrypting/decrypt\n \n => ")
+        choice = input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nGet a Key: getkey\nCrypting a file: crypting/crypt\nDecrypting a file: decrypting/decrypt\nExit: exit/quit\n \n => {white}")
         if choice.lower() == "getkey":
-            os.system('cls')
+            clear_ter()
             defkey()
-            input(f'Your key is on key.txt on CryptPY folder\n \nPress Any Key ...')
-            os.system('cls')
+            input(f'{green}Your key is on key.txt on CryptPY folder\n \nPress Any Key ... {white}')
+            clear_ter()
         elif choice.lower() in ("crypting", "crypt"):
-            os.system('cls')
-            filepath = input("CryptPY [Fernet]\n \nComplete file path\n \n => ")
-            os.system('cls')
-            my_key = str(input("Your Fernet Key\n \n => "))
-            os.system('cls')
+            clear_ter()
+            filepath = input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nComplete file path\n \n => {white}")
+            clear_ter()
+            my_key = str(input(f"{green}Your Fernet Key\n \n => {white}"))
+            clear_ter()
             crypt(my_key, filepath)
-            input("CryptPY [Fernet]\n \nCrypting finish !\n \nPress Any Key ...")
-            os.system('cls')
+            input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nCrypting finish !\n \nPress Any Key ... {white}")
+            clear_ter()
         elif choice.lower() in ("decrypting", "decrypt"):
-            os.system('cls')
-            filepath = input("CryptPY [Fernet]\n \nComplete file path ?\n \n => ")
-            os.system('cls')
-            my_key = str(input("Your Fernet Key\n \n => "))
-            os.system('cls')
+            clear_ter()
+            filepath = input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nComplete file path ?\n \n => {white}")
+            clear_ter()
+            my_key = str(input(f"{green}Your Fernet Key\n \n => {white}"))
+            clear_ter()
             decrypt(my_key, filepath)
-            input("CryptPY [Fernet]\n \nDecrypting finish !\n \nPress Any Key ...")
-            os.system('cls')
+            input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nDecrypting finish !\n \nPress Any Key ... {white}")
+            clear_ter()
         elif choice.lower() in ("quit", "exit"):
-            os.system('cls')
-            input("CryptPY [Fernet]\n \nPress Any Key To Quit...")
+            clear_ter()
+            input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nPress Any Key To Quit... {white}")
             break      
