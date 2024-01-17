@@ -2,7 +2,7 @@
 
 ## How use this program ?
 
-To use CryptPY , you have to run cryptpy.py
+To use CryptPY , you have to run main.py
 
 You have to get a key to crypt and decrypt your file: 
 
