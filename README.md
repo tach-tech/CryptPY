@@ -52,6 +52,10 @@ And to decrypt file , you have to make like crypting
 
 ----------------------------
 
+## Changelog 17/01
+
+- Log system added
+
 ## About this project 
 
 CryptPY is an not original project dedicated for crypting and decrypting with Fernet.
