@@ -2,20 +2,24 @@ from cryptography.fernet import Fernet
 from pystyle import *
 import time
 import os
-from w_log import wlog
+import PySimpleGUI as sg
+
+from w_log import *
 
 white = Col.white
 red = Col.light_red
 blue = Col.light_blue
 green = Col.light_green
 
-def cryptPY():
+def cryptPY_cmd():
+
+    wlog_cmd()
 
     def defkey():
         key = Fernet.generate_key()
         with open("CryptPY\key.txt", 'wb') as file:
             file.write(key)
-        wlog(key)
+        wlogkey_cmd(key)
 
     def crypt(key, path):
         fernet = Fernet(key)
@@ -24,6 +28,7 @@ def cryptPY():
         encrypted = fernet.encrypt(original)
         with open("crypt_file.txt", 'wb') as encrypted_file:
             encrypted_file.write(encrypted)
+        wlogcrypt_cmd(key)
 
     def decrypt(key, path):
         fernet = Fernet(key)    
@@ -32,6 +37,7 @@ def cryptPY():
         decrypted = fernet.decrypt(encrypted)
         with open('crypt_file.txt', 'wb') as dec_file:
             dec_file.write(decrypted)
+        wlogdecrypt_cmd(key)
     
     def clear_ter():
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -40,12 +46,12 @@ def cryptPY():
 
         clear_ter()
         input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nPress Any Key ... {white}")
-        time.sleep(1.5)
         clear_ter()
 
         choice = input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nGet a Key: getkey\nCrypting a file: crypting/crypt\nDecrypting a file: decrypting/decrypt\nExit: exit/quit\n \n => {white}")
         if choice.lower() == "getkey":
             clear_ter()
+            time.sleep(1)
             defkey()
             input(f'{green}Your key is on key.txt on CryptPY folder\n \nPress Any Key ... {white}')
             clear_ter()
@@ -71,3 +77,10 @@ def cryptPY():
             clear_ter()
             input(f"{red}~ CryptPY [Fernet] ~{blue}\n \nPress Any Key To Quit... {white}")
             break      
+
+def cryptPY_gui():
+
+    print("Soon...")
+
+    wlog_gui()
+

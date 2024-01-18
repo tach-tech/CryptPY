@@ -1,1 +1,4 @@
 ----------| Key Log |----------
+ 
+[-] cmd program run on : Windows
+[-] At 01/18/2024, 10:52:53
